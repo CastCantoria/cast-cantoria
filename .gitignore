@@ -1,55 +1,24 @@
-# 🔧 Node.js
-node_modules/
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# 🧪 Vite
-dist/
-.vite/
+node_modules
+dist
+dist-ssr
+*.local
 
-# 🔥 Firebase
-.firebase/
-firebase.json
-firestore.indexes.json
-firestore.rules
-serviceAccountKey.json
-
-# ⚙️ Environnements
-.env
-.env.local
-.env.*.local
-
-# 🧠 IDEs
-.vscode/
-.idea/
-
-# 📸 Médias lourds (optionnel si versionnés ailleurs)
-*.mp4
-*.mpg
-*.avi
-*.mov
-*.wav
-*.flac
-*.psd
-
-# 🧼 OS & système
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-
-# 🧪 TypeScript
-*.tsbuildinfo
-
-# 🧾 Git
-*.orig
-
-# 🧩 Archives et fichiers temporaires
-archives/
-*.zip
-*.tar.gz
-*.bak
-*.tmp
-
-# 🧠 Dossiers générés
-dataconnect-generated/
-functions/node_modules/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

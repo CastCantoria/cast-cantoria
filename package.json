@@ -10,14 +10,11 @@
     "preview": "vite preview",
     "deploy:firebase": "bash deploy-firebase.sh",
     "deploy:ghpages": "bash deploy-ghpages.sh",
-    "deploy": "node deploy.js",
-    "set-admin": "node src/scripts/setAdmin.cjs"
+    "deploy": "node deploy.js"
   },
   "dependencies": {
-    "@dataconnect/generated": "file:dataconnect-generated/js/example-connector",
     "bootstrap": "^5.3.7",
     "firebase": "^12.1.0",
-    "firebase-admin": "^13.4.0",
     "framer-motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
