@@ -1,33 +1,75 @@
-# 🔄 Synchronisation forcée – Cantoria
+📝 README.md — Cast Cantoria (React/Vite)
+# 🎶 Cast Cantoria
 
-**Date :** 2025-08-21  
-**Auteur :** Tovoniaina  
-**Branche :** `main`  
-**Action :** `git push --force`
-
-## 🎯 Contexte
-Le dépôt distant contenait des commits obsolètes ou non pertinents. La version locale a été nettoyée, restructurée et validée comme source de vérité.
-
-## ✅ Changements clés
-- Suppression des fichiers trop volumineux
-- Nettoyage des chemins cassés
-- Réorganisation des assets
-- Mise à jour du README
-
-## 📌 Recommandation
-Tous les contributeurs doivent re-cloner le dépôt ou faire un `git fetch --all && git reset --hard origin/main` pour éviter les conflits.
+Plateforme web moderne construite avec **React + Vite**, conçue pour une expérience fluide côté client, une architecture modulaire, et une intégration sécurisée via **Firebase/Auth**.
 
 ---
 
-# React + Vite
+## 🚀 Fonctionnalités
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- ⚛️ Architecture SPA avec React Router
+- 🧩 Composants modulaires et réutilisables
+- 🔐 Authentification Firebase (membres/admin)
+- 📄 Formulaires dynamiques avec validation robuste
+- 🎨 Animations fluides via Framer Motion
+- 📦 Déploiement optimisé sur Vercel
+- 🛠️ Configuration GitHub + CI/CD
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📁 Structure du projet
+📁 src/
+├── [components](https://github.com/ton-utilisateur/ton-repo/tree/main/src/components)       → Composants UI réutilisables
+├── [pages](https://github.com/ton-utilisateur/ton-repo/tree/main/src/pages)                → Pages principales (Galerie, Présentation, etc.)
+├── [layouts](https://github.com/ton-utilisateur/ton-repo/tree/main/src/layouts)            → Layouts communs (Header, Footer)
+├── [auth](https://github.com/ton-utilisateur/ton-repo/tree/main/src/auth)                  → Logique Firebase/Auth
+├── [forms](https://github.com/ton-utilisateur/ton-repo/tree/main/src/forms)                → Formulaires avec validation
+├── [assets](https://github.com/ton-utilisateur/ton-repo/tree/main/src/assets)              → Images, icônes, fichiers statiques
+├── [utils](https://github.com/ton-utilisateur/ton-repo/tree/main/src/utils)                → Fonctions utilitaires
+└── [App.jsx](https://github.com/ton-utilisateur/ton-repo/blob/main/src/App.jsx)            → Routing principal (React Router)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔧 Installation locale
+
+```bash
+git clone https://github.com/ton-repo/cast-cantoria.git
+cd cast-cantoria
+npm install
+npm run dev
+
+
+
+🌐 Déploiement sur Vercel
+Ajoute un fichier vercel.json à la racine :
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
+
+
+Cela permet à React Router de gérer les routes côté client sans erreur 404.
+
+🔐 Authentification Firebase
+Configure ton projet Firebase et ajoute les clés dans .env.local :
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+
+
+
+📋 À venir
+- 🛡️ Routes protégées (admin/membre)
+- 📣 Système de notifications
+- 🧑‍💻 Interface d’administration
+- 📊 Tableau de bord dynamique
+
+🤝 Contribuer
+- Fork le repo
+- Crée une branche (git checkout -b feature/ma-feature)
+- Commit tes changements (git commit -am 'Ajout de ma feature')
+- Push (git push origin feature/ma-feature)
+- Ouvre une Pull Request
+
+📄 Licence
+MIT © Tovoniaina
