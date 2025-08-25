@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../services/firebase";
+import { auth, db } from "../../firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import UserProfile from "./UserProfile"; // nouveau composant
 
