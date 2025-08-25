@@ -1,35 +1,32 @@
-// src/components/ContactForm.jsx
-import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase'; // Assure-toi que firebase.js est bien configuré
+import React, { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '', honeypot: '' });
+  const [form, setForm] = useState({ name: "", email: "", message: "", honeypot: "" });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [firebaseError, setFirebaseError] = useState('');
+  const [firebaseError, setFirebaseError] = useState("");
 
   const validate = () => {
     const newErrors = {};
-    if (!form.name.trim()) newErrors.name = 'Le nom est requis.';
+    if (!form.name.trim()) newErrors.name = "Le nom est requis.";
     if (!form.email.trim()) {
-      newErrors.email = 'L’email est requis.';
+      newErrors.email = "L’email est requis.";
     } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-      newErrors.email = 'Format d’email invalide.';
+      newErrors.email = "Format d’email invalide.";
     }
-    if (!form.message.trim()) newErrors.message = 'Le message est requis.';
+    if (!form.message.trim()) newErrors.message = "Le message est requis.";
     return newErrors;
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Anti-spam : si le champ caché est rempli, on ignore
     if (form.honeypot) return;
 
     const validationErrors = validate();
@@ -40,19 +37,19 @@ const ContactForm = () => {
 
     setErrors({});
     setLoading(true);
-    setFirebaseError('');
+    setFirebaseError("");
 
     try {
-      await addDoc(collection(db, 'messages'), {
+      await addDoc(collection(db, "messages"), {
         name: form.name,
         email: form.email,
         message: form.message,
-        timestamp: new Date()
+        timestamp: new Date(),
       });
       setSubmitted(true);
-      setForm({ name: '', email: '', message: '', honeypot: '' });
+      setForm({ name: "", email: "", message: "", honeypot: "" });
     } catch (error) {
-      console.error('Erreur Firebase :', error);
+      console.error("Erreur Firebase :", error);
       setFirebaseError("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
     } finally {
       setLoading(false);
@@ -61,13 +58,12 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
-      {/* Champ caché anti-spam */}
       <input
         type="text"
         name="honeypot"
         value={form.honeypot}
         onChange={handleChange}
-        style={{ display: 'none' }}
+        style={{ display: "none" }}
         tabIndex="-1"
         autoComplete="off"
       />
@@ -76,7 +72,7 @@ const ContactForm = () => {
         <label htmlFor="name" className="form-label">Nom</label>
         <input
           type="text"
-          className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+          className={`form-control ${errors.name ? "is-invalid" : ""}`}
           id="name"
           name="name"
           value={form.name}
@@ -89,7 +85,7 @@ const ContactForm = () => {
         <label htmlFor="email" className="form-label">Email</label>
         <input
           type="email"
-          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+          className={`form-control ${errors.email ? "is-invalid" : ""}`}
           id="email"
           name="email"
           value={form.email}
@@ -101,7 +97,7 @@ const ContactForm = () => {
       <div className="mb-3">
         <label htmlFor="message" className="form-label">Message</label>
         <textarea
-          className={`form-control ${errors.message ? 'is-invalid' : ''}`}
+          className={`form-control ${errors.message ? "is-invalid" : ""}`}
           id="message"
           name="message"
           rows="4"
@@ -112,12 +108,12 @@ const ContactForm = () => {
       </div>
 
       <button type="submit" className="btn btn-primary" disabled={loading}>
-        {loading ? 'Envoi en cours...' : 'Envoyer'}
+        {loading ? "Envoi en cours..." : "Envoyer"}
       </button>
 
       {submitted && (
         <div className="alert alert-success mt-3">
-          Merci pour votre message ! Nous vous répondrons bientôt.
+          Merci pour votre message ! Nous vous répondrons bientôt.
         </div>
       )}
 

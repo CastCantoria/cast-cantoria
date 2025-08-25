@@ -1,7 +1,6 @@
-// src/pages/Gallery.jsx
-import React from 'react';
-import Layout from '../components/Layout';
-import { motion } from 'framer-motion';
+import React from "react";
+import Layout from "../components/Layout";
+import { motion as MotionDiv } from "framer-motion";
 
 const Gallery = () => {
   return (
@@ -14,7 +13,7 @@ const Gallery = () => {
       </section>
 
       {/* 🎶 Contenu principal avec animation */}
-      <motion.main
+      <MotionDiv
         className="container py-5"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -25,7 +24,7 @@ const Gallery = () => {
         {/* 📷 PHOTOS */}
         <h3 className="mt-5 mb-3 text-center">Photos</h3>
         <div className="row g-3">
-          {['photo1.jpg', 'photo2.jpg', 'photo3.jpg'].map((file, index) => (
+          {["photo1.jpg", "photo2.jpg", "photo3.jpg"].map((file, index) => (
             <div className="col-md-4" key={index}>
               <img
                 src={`/assets/images/gallery/${file}`}
@@ -60,8 +59,8 @@ const Gallery = () => {
         <h3 className="mt-5 mb-3 text-center">Audios</h3>
         <div className="row g-4 justify-content-center">
           {[
-            { src: 'cast-chant1.mp3', label: '« O solennel Gloria » — CAST Live' },
-            { src: 'cast-chant2.mp3', label: '« Méditation vocale » — CAST Studio' }
+            { src: "cast-chant1.mp3", label: "« O solennel Gloria » — CAST Live" },
+            { src: "cast-chant2.mp3", label: "« Méditation vocale » — CAST Studio" },
           ].map((audio, index) => (
             <div className="col-md-6 text-center" key={index}>
               <audio controls className="w-100 shadow-sm rounded">
@@ -71,7 +70,7 @@ const Gallery = () => {
             </div>
           ))}
         </div>
-      </motion.main>
+      </MotionDiv>
     </Layout>
   );
 };

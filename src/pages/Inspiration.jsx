@@ -2,6 +2,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; // Assure-toi que ce contexte existe
 
 const inspirations = [
   {
@@ -25,8 +26,23 @@ const inspirations = [
 ];
 
 const Inspiration = () => {
+  const { currentUser } = useAuth(); // Récupère l'utilisateur connecté
+
   return (
     <Layout>
+      {/* Message de bienvenue si connecté */}
+      {currentUser && (
+        <section className="bg-light text-center py-4">
+          <h4 className="mb-2">🎶 Bienvenue {currentUser.displayName || 'cher membre'} !</h4>
+          <p className="text-muted small">
+            <strong>Email :</strong> {currentUser.email}
+          </p>
+          <p className="fst-italic text-secondary">
+            “Ny feo tsara dia toy ny fanahy madio.” – Une belle voix est comme une âme pure.
+          </p>
+        </section>
+      )}
+
       {/* Citation d’ouverture */}
       <section className="bg-light text-center py-3">
         <p className="fst-italic text-secondary mb-0">

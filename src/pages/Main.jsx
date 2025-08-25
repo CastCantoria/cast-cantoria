@@ -1,8 +1,6 @@
-// src/pages/Main.jsx
-import React from 'react';
-import Layout from '../components/Layout';
-import ContactForm from '../components/ContactForm';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Layout from "../components/Layout";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -19,8 +17,8 @@ const Main = () => {
         className="text-center text-light py-5"
         style={{
           backgroundImage: "url('/assets/images/photo-choeur.jpeg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="bg-opacity-75 p-4 rounded">
@@ -28,7 +26,7 @@ const Main = () => {
           <p className="lead mt-3">
             Découvrez comment la musique unit les âmes à travers la puissance de la voix humaine.
           </p>
-          <Link to="/Contact" className="btn btn-primary mt-3">Découvrez-nous</Link>
+          <Link to="/contact" className="btn btn-primary mt-3">Découvrez-nous</Link>
         </div>
       </section>
 
@@ -50,7 +48,7 @@ const Main = () => {
             <p>
               Notre chœur est composé de membres issus de diverses Églises chrétiennes...
             </p>
-            <Link to="/Presentation" className="btn btn-secondary mt-3">En savoir plus</Link>
+            <Link to="/presentation" className="btn btn-secondary mt-3">En savoir plus</Link>
           </div>
         </div>
       </section>
@@ -61,9 +59,9 @@ const Main = () => {
           <h2 className="text-center mb-4">Inspiration</h2>
           <div className="row">
             {[
-              ['inspiration1.jpg', 'La Musique', 'musique'],
-              ['inspiration2.jpg', "L'Art", 'art'],
-              ['inspiration3.jpg', 'La Spiritualité', 'spiritualite'],
+              ["inspiration1.jpg", "La Musique", "musique"],
+              ["inspiration2.jpg", "L'Art", "art"],
+              ["inspiration3.jpg", "La Spiritualité", "spiritualite"],
             ].map(([img, title, anchor], i) => (
               <div className="col-md-4 mb-4" key={i}>
                 <div className="card shadow-sm">
@@ -71,7 +69,7 @@ const Main = () => {
                   <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">...</p>
-                    <Link to={`/Inspiration#${anchor}`} className="btn btn-primary">Découvrez</Link>
+                    <Link to={`/inspiration#${anchor}`} className="btn btn-primary">Découvrez</Link>
                   </div>
                 </div>
               </div>
@@ -84,7 +82,7 @@ const Main = () => {
       <section className="container py-5">
         <h2 className="text-center mb-4">Galerie</h2>
         <div className="row">
-          {['IMG-20250620-WA0005.jpg', 'galerie2.jpg', 'galerie3.jpg'].map((img, i) => (
+          {["IMG-20250620-WA0005.jpg", "galerie2.jpg", "galerie3.jpg"].map((img, i) => (
             <div className="col-md-4 mb-4" key={i}>
               <a
                 href={`/assets/images/${img}`}
@@ -102,7 +100,7 @@ const Main = () => {
           ))}
         </div>
         <div className="text-center">
-          <Link to="/Gallery" className="btn btn-secondary">Voir la galerie complète</Link>
+          <Link to="/gallery" className="btn btn-secondary">Voir la galerie complète</Link>
         </div>
       </section>
 
@@ -112,9 +110,9 @@ const Main = () => {
           <h2 className="text-center mb-4">Nos Engagements</h2>
           <div className="row">
             {[
-              ['Qualité', 'Nous nous engageons à offrir des performances...'],
-              ['Accessibilité', 'Nous œuvrons pour rendre notre musique accessible...'],
-              ['Durabilité', "Nous nous engageons en faveur d'une pratique artistique durable..."],
+              ["Qualité", "Nous nous engageons à offrir des performances..."],
+              ["Accessibilité", "Nous œuvrons pour rendre notre musique accessible..."],
+              ["Durabilité", "Nous nous engageons en faveur d'une pratique artistique durable..."],
             ].map(([title, text], i) => (
               <div className="col-md-4 mb-4" key={i}>
                 <div className="card shadow-sm">
@@ -163,7 +161,7 @@ const Main = () => {
           <p className="fst-italic poetic-intro-phrase mb-4">
             « Il arrive que la voix dise ce que le cœur n’ose penser. »
           </p>
-          <Link to="/NotreVoix" className="btn btn-outline-primary">
+          <Link to="/notrevoix" className="btn btn-outline-primary">
             Entrer dans notre voix intérieure
           </Link>
         </div>

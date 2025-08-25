@@ -1,27 +1,39 @@
-// src/pages/Connexion.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Connexion = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // Tu peux ajouter ici une logique Firebase Auth si nécessaire
     console.log('Connexion page mounted');
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/profil'); // ✅ redirection après succès
+    } catch (err) {
+      console.error('❌ Erreur de connexion :', err.message);
+      setError("Adresse e-mail ou mot de passe incorrect.");
+    }
+  };
+
   const handleGoogleLogin = () => {
-    // 🔐 Intégration Firebase Auth Google ici
     console.log('Google login triggered');
+    // Tu peux intégrer signInWithPopup ici
   };
 
   const handleFacebookLogin = () => {
-    // 🔐 Intégration Firebase Auth Facebook ici
     console.log('Facebook login triggered');
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 🔐 Traitement du formulaire ici
-    console.log('Form submitted');
+    // Tu peux intégrer signInWithPopup ici aussi
   };
 
   return (
@@ -30,13 +42,32 @@ const Connexion = () => {
         <h2 className="text-center mb-4">Connexion membre</h2>
 
         <form id="login-form" onSubmit={handleSubmit} className="mx-auto" style={{ maxWidth: '400px' }}>
+          {error && (
+            <div className="alert alert-danger text-center" role="alert">
+              {error}
+            </div>
+          )}
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Adresse e-mail</label>
-            <input type="email" className="form-control" id="email" required />
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">Mot de passe</label>
-            <input type="password" className="form-control" id="password" required />
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
           <button type="submit" className="btn btn-success w-100">Se connecter</button>
           <hr />

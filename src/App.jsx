@@ -1,20 +1,20 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-// Pages listées dans route.txt
-import Main from './pages/Main';
-import Presentation from './pages/Presentation';
-import Inspiration from './pages/Inspiration';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
-import NotreVoix from './pages/NotreVoix';
-import Engagement from './pages/Engagement';
-import Inscription from './pages/Inscription';
-import EspaceMembre from './pages/EspaceMembre';
-import Admin from './pages/Admin';
-import AuthForm from './pages/AuthForm';
-import Connexion from './pages/Connexion';
-import Profil from './pages/Profil';
+// Pages
+import Main from "./pages/Main";
+import Presentation from "./pages/Presentation";
+import Inspiration from "./pages/Inspiration";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+import NotreVoix from "./pages/NotreVoix";
+import Engagement from "./pages/Engagement";
+import Inscription from "./pages/Inscription";
+import EspaceMembre from "./pages/EspaceMembre";
+import Admin from "./pages/Admin";
+import AuthForm from "./pages/AuthForm";
+import Connexion from "./pages/Connexion";
+import Profil from "./pages/Profil";
 
 const App = () => {
   return (
@@ -32,7 +32,6 @@ const App = () => {
       <Route path="/authform" element={<AuthForm />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/profil" element={<Profil />} />
-      {/* Route fallback */}
       <Route path="*" element={<h1>404 - Page non trouvée</h1>} />
     </Routes>
   );

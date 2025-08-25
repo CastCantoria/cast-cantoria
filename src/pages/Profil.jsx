@@ -1,10 +1,14 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import useUser from '../hooks/useUser';
-import { Navigate } from 'react-router-dom';
+import React from "react";
+import Layout from "../components/Layout";
+import { Navigate } from "react-router-dom";
+import useUserContext from "../hooks/useUserContext"; // ✅ import corrigé
 
 const Profil = () => {
-  const { user, loading, logout } = useUser();
+  const { user, loading, logout } = useUserContext(); // ✅ récupération du contexte
+
+  const handleLogout = async () => {
+    await logout(); // ✅ méthode du hook
+  };
 
   if (loading) {
     return (
@@ -16,25 +20,26 @@ const Profil = () => {
     );
   }
 
-  if (!user) return <Navigate to="/Connexion" />;
+  if (!user) return <Navigate to="/connexion" />;
 
   return (
     <Layout>
       <div className="container py-5 text-center">
-        <h2 className="mb-4">Bienvenue, {user.displayName || 'Membre'} 👋</h2>
+        <h2 className="mb-4">Bienvenue, {user.displayName || "Membre"} 👋</h2>
 
         {user.photoURL && (
           <img
             src={user.photoURL}
             alt="Photo de profil"
             className="rounded-circle shadow-sm mb-3"
-            style={{ width: '120px', height: '120px', objectFit: 'cover' }}
+            style={{ width: "120px", height: "120px", objectFit: "cover" }}
           />
         )}
 
         <p><strong>Email :</strong> {user.email}</p>
+        <p><strong>UID :</strong> {user.uid}</p>
 
-        <button className="btn btn-outline-danger mt-4" onClick={logout}>
+        <button className="btn btn-outline-danger mt-4" onClick={handleLogout}>
           Se déconnecter
         </button>
       </div>

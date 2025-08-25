@@ -1,86 +1,55 @@
-// src/pages/Inscription.jsx
-import React, { useState } from 'react';
-import Layout from '../components/Layout';
+// src/pages/Inspiration.jsx
+import React from "react";
+import Layout from "../components/Layout";
+import { Link } from "react-router-dom";
 
-const Inscription = () => {
-  const [formData, setFormData] = useState({
-    lastname: '',
-    firstname: '',
-    religion: '',
-    address: '',
-    email: '',
-    confirmEmail: '',
-    password: '',
-    confirmPassword: '',
-  });
+const inspirations = [
+  {
+    title: "Chant sacré et guérison",
+    text: "La vibration vocale peut apaiser l’âme et reconnecter à l’essentiel.",
+  },
+  {
+    title: "L’unité par la polyphonie",
+    text: "Chaque voix est unique, mais ensemble elles forment un tout harmonieux.",
+  },
+  {
+    title: "Foi incarnée dans le souffle",
+    text: "Respirer, chanter, croire — trois gestes qui élèvent.",
+  },
+];
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 🔐 Validation & Firebase logic à intégrer ici
-    console.log('Form submitted:', formData);
-  };
-
-  const handleGoogleSignup = () => {
-    // 🔐 Intégration Firebase Auth Google ici
-    console.log('Google signup triggered');
-  };
-
+const Inspiration = () => {
   return (
     <Layout>
-      <main className="container my-5">
-        <h2 className="text-center mb-4">Créer un compte membre</h2>
-
-        <p className="text-center mb-4 text-muted">
-          Vous pouvez vous inscrire directement avec votre compte Google ou remplir le formulaire ci-dessous.
+      <main className="container py-5">
+        <h2 className="text-center mb-4">🌟 Inspirations du Chœur</h2>
+        <p className="text-muted text-center">
+          « Là où les mots échouent, la musique parle. »
         </p>
 
-        <form onSubmit={handleSubmit} className="mx-auto" style={{ maxWidth: '500px' }}>
-          <div className="mb-3">
-            <label htmlFor="lastname" className="form-label">Nom</label>
-            <input type="text" className="form-control" id="lastname" value={formData.lastname} onChange={handleChange} required />
+        <section className="mt-5">
+          <div className="row g-4">
+            {inspirations.map((item, index) => (
+              <div className="col-md-4" key={index}>
+                <div className="card h-100 shadow-sm">
+                  <div className="card-body">
+                    <h5 className="card-title">{item.title}</h5>
+                    <p className="card-text">{item.text}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="mb-3">
-            <label htmlFor="firstname" className="form-label">Prénom</label>
-            <input type="text" className="form-control" id="firstname" value={formData.firstname} onChange={handleChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="religion" className="form-label">Affiliation religieuse</label>
-            <input type="text" className="form-control" id="religion" value={formData.religion} onChange={handleChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="address" className="form-label">Adresse complète</label>
-            <textarea className="form-control" id="address" rows="2" value={formData.address} onChange={handleChange} required></textarea>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">Adresse e-mail</label>
-            <input type="email" className="form-control" id="email" value={formData.email} onChange={handleChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="confirm-email" className="form-label">Confirmer l’adresse e-mail</label>
-            <input type="email" className="form-control" id="confirm-email" value={formData.confirmEmail} onChange={handleChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">Mot de passe</label>
-            <input type="password" className="form-control" id="password" value={formData.password} onChange={handleChange} required />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="confirm-password" className="form-label">Confirmer le mot de passe</label>
-            <input type="password" className="form-control" id="confirm-password" value={formData.confirmPassword} onChange={handleChange} required />
-          </div>
-          <button type="submit" className="btn btn-primary w-100">Créer mon compte</button>
-          <hr />
-          <button type="button" onClick={handleGoogleSignup} className="btn btn-outline-danger w-100">
-            <span className="bi bi-google"></span> S’inscrire avec Google
-          </button>
-        </form>
+        </section>
+
+        <div className="text-center mt-5">
+          <Link to="/inscription" className="btn btn-primary">
+            Rejoindre le Chœur
+          </Link>
+        </div>
       </main>
     </Layout>
   );
 };
 
-export default Inscription;
+export default Inspiration;

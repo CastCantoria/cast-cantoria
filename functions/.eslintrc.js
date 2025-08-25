@@ -1,10 +1,13 @@
+/* eslint-env node */
+
 module.exports = {
   env: {
-    es6: true,
+    es2021: true,
     node: true,
   },
   parserOptions: {
-    "ecmaVersion": 2018,
+    ecmaVersion: 12,
+    sourceType: "script",
   },
   extends: [
     "eslint:recommended",
@@ -13,7 +16,8 @@ module.exports = {
   rules: {
     "no-restricted-globals": ["error", "name", "length"],
     "prefer-arrow-callback": "error",
-    "quotes": ["error", "double", {"allowTemplateLiterals": true}],
+    "quotes": ["error", "double", { allowTemplateLiterals: true }],
+    "require-jsdoc": "off",
   },
   overrides: [
     {
@@ -21,8 +25,6 @@ module.exports = {
       env: {
         mocha: true,
       },
-      rules: {},
     },
   ],
-  globals: {},
 };

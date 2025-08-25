@@ -1,0 +1,6 @@
+# deploy-all.sh
+npm run build
+firebase deploy
+git push --set-upstream origin clean-main
+git push origin
+npm run dev
