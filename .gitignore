@@ -29,3 +29,6 @@ src/scripts/serviceAccountKey.json
 *.njsproj
 *.sln
 *.sw?
+
+# Outils Git à ignorer
+git-filter-repo
