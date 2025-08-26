@@ -8,14 +8,20 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "start": "node server/app.js",
     "deploy:firebase": "bash deploy-firebase.sh",
     "deploy:ghpages": "bash deploy-ghpages.sh",
     "deploy": "node deploy.js"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "bootstrap": "^5.3.7",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "firebase": "^12.1.0",
     "framer-motion": "^12.23.12",
+    "jsonwebtoken": "^9.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-helmet": "^6.1.0",
@@ -32,5 +38,18 @@
     "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "vite": "^7.1.2"
-  }
+  },
+  "description": "📝 README.md — Cast Cantoria (React/Vite) # 🎶 Cast Cantoria",
+  "main": "deploy.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CastCantoria/cast-cantoria.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CastCantoria/cast-cantoria/issues"
+  },
+  "homepage": "https://github.com/CastCantoria/cast-cantoria#readme"
 }

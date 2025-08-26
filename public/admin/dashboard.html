@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="/admin/style.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "TA_CLE_API",
+      authDomain: "ton-projet.firebaseapp.com",
+      projectId: "ton-projet",
+      storageBucket: "ton-projet.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abcdef"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body>
+  <h1>🎩 Panneau Administrateur</h1>
+  <p>Bienvenue, chef d’orchestre du projet <strong>CastCantoria</strong>.</p>
+
+  <section>
+    <button id="logoutBtn">Déconnexion</button>
+    <button id="statsBtn">Voir les statistiques</button>
+    <button id="usersBtn">Gérer les utilisateurs</button>
+  </section>
+
+  <script src="/js/dashboard.js"></script>
+  <script>
+    // Vérification de l'authentification
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "/admin/login.html"; // Redirection si non connecté
+      } else {
+        // Optionnel : vérifier si l'utilisateur est admin via custom claims ou Firestore
+        console.log("Utilisateur connecté :", user.email);
+      }
+    });
+
+    // Gestion des boutons
+    document.getElementById("logoutBtn").onclick = () => firebase.auth().signOut();
+    document.getElementById("statsBtn").onclick = () => showStats();
+    document.getElementById("usersBtn").onclick = () => manageUsers();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Éditeur</title>
+  <link rel="stylesheet" href="/admin/style.css" />
+</head>
+<body>
+  <h1>✍️ Espace Éditeur</h1>
+  <p>Bienvenue, artisan du contenu et gardien de la qualité.</p>
+
+  <section>
+    <button onclick="logout()">Déconnexion</button>
+    <button onclick="editContent()">Modifier le contenu</button>
+    <button onclick="submitDraft()">Soumettre un brouillon</button>
+  </section>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Éditeur</title>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoEx_uI33l7NdccnaDFIo795MojTW5WJc",
+      authDomain: "cast-cantoria.firebaseapp.com",
+      projectId: "cast-cantoria",
+      storageBucket: "cast-cantoria.firebasestorage.app",
+      messagingSenderId: "952519116536",
+      appId: "1:952519116536:web:e06c6a0cc9c08ae2c69d0d",
+      measurementId: "G-T23NG4H2Z2"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<body>
+  <h1>✍️ Espace Éditeur</h1>
+  <p>Bienvenue, artisan du contenu et gardien de la qualité.</p>
+
+  <section>
+    <button onclick="logout()">Déconnexion</button>
+    <button onclick="editContent()">Modifier le contenu</button>
+    <button onclick="submitDraft()">Soumettre un brouillon</button>
+  </section>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
