@@ -1,0 +1,55 @@
+// src/pages/Presentation.jsx
+import React from 'react';
+import Layout from '../components/Layout';
+import { Link } from 'react-router-dom';
+
+const Presentation = () => {
+  return (
+    <Layout>
+      {/* Citation d’accueil */}
+      <section className="bg-light text-center py-3">
+        <p className="fst-italic text-secondary mb-0">
+          « Le chant est une offrande. Chaque voix, un acte de foi. »
+        </p>
+      </section>
+
+      {/* Contenu principal */}
+      <section className="container py-5">
+        <h2 className="text-center mb-4">Présentation du Chœur</h2>
+
+        <p className="text-center mb-5">
+          Le Chœur Artistique & Spirituel de Tanà est né du désir d’unir les âmes par la beauté de la voix humaine.
+          Fondé à Antananarivo, il rassemble des chanteurs animés par une foi profonde et une passion pour l’art vocal sacré.
+        </p>
+
+        <div className="row g-5">
+          <div className="col-md-6">
+            <h4 className="mb-3">🎼 Notre mission</h4>
+            <p>
+              Créer un espace où la musique devient prière, où chaque performance transcende le visible pour toucher l’invisible.
+              Le CAST œuvre pour éveiller la spiritualité à travers l’harmonie, le silence et la résonance intérieure.
+            </p>
+          </div>
+
+          <div className="col-md-6">
+            <h4 className="mb-3">🌍 Nos valeurs</h4>
+            <ul className="list-group list-group-flush shadow-sm rounded">
+              <li className="list-group-item">Foi et ferveur musicale</li>
+              <li className="list-group-item">Fraternité et entraide</li>
+              <li className="list-group-item">Excellence artistique</li>
+              <li className="list-group-item">Respect et humilité</li>
+              <li className="list-group-item">Ouverture culturelle et spirituelle</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="text-center mt-5">
+          <Link to="/Inspiration" className="btn btn-outline-primary me-2">Voir nos inspirations</Link>
+          <Link to="/Engagement" className="btn btn-primary">S’engager avec nous</Link>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default Presentation;
