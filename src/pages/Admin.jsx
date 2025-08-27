@@ -1,42 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../styles/poesie.css';
 
 const Admin = () => {
-  useEffect(() => {
-    // Chargement dynamique du head
-    fetch('components/head.html')
-      .then(res => res.text())
-      .then(data => {
-        const head = document.head;
-        if (head) {
-          head.insertAdjacentHTML('beforeend', data);
-        }
-      });
-
-    // Chargement du header
-    fetch('components/header.html')
-      .then(res => res.text())
-      .then(data => {
-        const header = document.getElementById('header-placeholder');
-        if (header) {
-          header.innerHTML = data;
-        }
-      });
-
-    // Chargement du footer
-    fetch('components/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        const footer = document.getElementById('footer-placeholder');
-        if (footer) {
-          footer.innerHTML = data;
-        }
-      });
-  }, []);
-
   return (
-    <div className="container py-4">
-      {/* 🔝 Menu dynamique */}
-      <div id="header-placeholder"></div>
+    <div className="admin-container">
+      <Header />
 
       {/* 🔐 Vérification d'accès */}
       <section id="auth-check" className="mb-4">
@@ -45,7 +15,7 @@ const Admin = () => {
 
       {/* 🎛️ Panneau Administrateur */}
       <main className="admin-dashboard">
-        <h1>Panneau Administrateur</h1>
+        <h1 className="titre-rituel">Panneau Administrateur</h1>
 
         {/* 📤 Zone d’upload */}
         <section id="upload-zone">
@@ -105,8 +75,7 @@ const Admin = () => {
         </section>
       </main>
 
-      {/* 🔻 Footer dynamique */}
-      <div id="footer-placeholder"></div>
+      <Footer />
     </div>
   );
 };

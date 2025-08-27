@@ -1,7 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useUser from '../hooks/useUser';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
 
 const Header = () => {
+  const { user } = useUser();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    alert("🔒 Vous avez été déconnecté.");
+    navigate('/');
+  };
+
+  const handleLoginRedirect = () => {
+    navigate('/espace-membre');
+  };
+
   return (
     <header className="bg-dark text-light shadow-sm position-sticky top-0 w-100 z-3">
       <nav className="navbar navbar-expand-lg container py-3">
@@ -31,7 +47,7 @@ const Header = () => {
 
         {/* 🧭 Menu principal */}
         <div className="collapse navbar-collapse justify-content-end" id="menuCAST">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav align-items-center">
             <li className="nav-item">
               <Link className="nav-link text-light" to="/">Accueil</Link>
             </li>
@@ -74,6 +90,35 @@ const Header = () => {
                 Espace membre
               </Link>
             </li>
+
+            {/* 👤 État de connexion */}
+            {user ? (
+              <>
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle text-success"
+                    href="#"
+                    data-bs-toggle="dropdown"
+                  >
+                    {user.displayName || user.email}
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li><Link className="dropdown-item" to="/profil">Mon profil</Link></li>
+                    <li>
+                      <button className="dropdown-item text-danger" onClick={handleLogout}>
+                        Se déconnecter
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <button className="btn btn-warning ms-2 fw-bold" onClick={handleLoginRedirect}>
+                  Se connecter
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

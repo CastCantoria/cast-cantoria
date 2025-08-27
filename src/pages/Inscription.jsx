@@ -1,6 +1,9 @@
-// src/pages/Inscription.jsx
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProverbeSelector from '../components/ProverbeSelector';
+import SocialLogin from '../components/SocialLogin';
+import '../styles/poesie.css';
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +17,9 @@ const Inscription = () => {
     confirmPassword: '',
   });
 
+  const [rituelMessage, setRituelMessage] = useState('');
+  const proverbe = ProverbeSelector();
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -21,19 +27,25 @@ const Inscription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 🔐 Validation & Firebase logic à intégrer ici
     console.log('Form submitted:', formData);
   };
 
   const handleGoogleSignup = () => {
-    // 🔐 Intégration Firebase Auth Google ici
-    console.log('Google signup triggered');
+    const audio = new Audio('/assets/audio/cast-chant2.mp3');
+    audio.play();
+    setRituelMessage("Ny fanombohana tsara dia mitondra fahombiazana.");
   };
 
   return (
-    <Layout>
+    <div className="auth-container">
+      <Header />
+
       <main className="container my-5">
-        <h2 className="text-center mb-4">Créer un compte membre</h2>
+        <h2 className="text-center mb-4 titre-rituel">Créer un compte membre</h2>
+
+        <p className="intro-rituelle text-center mb-4">
+          <em>{`“${proverbe}”`}</em>
+        </p>
 
         <p className="text-center mb-4 text-muted">
           Vous pouvez vous inscrire directement avec votre compte Google ou remplir le formulaire ci-dessous.
@@ -72,14 +84,23 @@ const Inscription = () => {
             <label htmlFor="confirm-password" className="form-label">Confirmer le mot de passe</label>
             <input type="password" className="form-control" id="confirm-password" value={formData.confirmPassword} onChange={handleChange} required />
           </div>
+
           <button type="submit" className="btn btn-primary w-100">Créer mon compte</button>
-          <hr />
-          <button type="button" onClick={handleGoogleSignup} className="btn btn-outline-danger w-100">
-            <span className="bi bi-google"></span> S’inscrire avec Google
-          </button>
         </form>
+
+        <hr />
+
+        <SocialLogin onGoogle={handleGoogleSignup} onFacebook={() => {}} />
+
+        {rituelMessage && (
+          <p className="proverbe-rituel mt-4 text-center">
+            {`“${rituelMessage}”`}
+          </p>
+        )}
       </main>
-    </Layout>
+
+      <Footer />
+    </div>
   );
 };
 

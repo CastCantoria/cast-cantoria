@@ -1,23 +1,32 @@
-// src/pages/Presentation.jsx
 import React from 'react';
-import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProverbeSelector from '../components/ProverbeSelector';
 import { Link } from 'react-router-dom';
+import '../styles/poesie.css';
 
 const Presentation = () => {
+  const proverbe = ProverbeSelector();
+
   return (
-    <Layout>
-      {/* Citation d’accueil */}
+    <div className="presentation-container">
+      <Header />
+
+      {/* 🎙️ Citation d’accueil */}
       <section className="bg-light text-center py-3">
         <p className="fst-italic text-secondary mb-0">
           « Le chant est une offrande. Chaque voix, un acte de foi. »
         </p>
+        <p className="proverbe-rituel mt-2">
+          {`“${proverbe}”`}
+        </p>
       </section>
 
-      {/* Contenu principal */}
+      {/* 🌟 Contenu principal */}
       <section className="container py-5">
-        <h2 className="text-center mb-4">Présentation du Chœur</h2>
+        <h2 className="text-center mb-4 titre-rituel">Présentation du Chœur</h2>
 
-        <p className="text-center mb-5">
+        <p className="text-center mb-5 intro-rituelle">
           Le Chœur Artistique & Spirituel de Tanà est né du désir d’unir les âmes par la beauté de la voix humaine.
           Fondé à Antananarivo, il rassemble des chanteurs animés par une foi profonde et une passion pour l’art vocal sacré.
         </p>
@@ -44,11 +53,13 @@ const Presentation = () => {
         </div>
 
         <div className="text-center mt-5">
-          <Link to="/Inspiration" className="btn btn-outline-primary me-2">Voir nos inspirations</Link>
-          <Link to="/Engagement" className="btn btn-primary">S’engager avec nous</Link>
+          <Link to="/inspiration" className="btn btn-outline-primary me-2">Voir nos inspirations</Link>
+          <Link to="/engagement" className="btn btn-primary">S’engager avec nous</Link>
         </div>
       </section>
-    </Layout>
+
+      <Footer />
+    </div>
   );
 };
 

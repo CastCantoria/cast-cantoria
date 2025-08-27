@@ -1,20 +1,29 @@
-// src/pages/Contact.jsx
 import React from 'react';
-import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProverbeSelector from '../components/ProverbeSelector';
+import '../styles/poesie.css';
 
 const Contact = () => {
+  const proverbe = ProverbeSelector();
+
   return (
-    <Layout>
-      {/* Citation d’accueil */}
+    <div className="contact-container">
+      <Header />
+
+      {/* 🎶 Citation d’accueil */}
       <section className="bg-light text-center py-3">
         <p className="fst-italic text-secondary mb-0">
           « La musique touche ce que les mots ne peuvent dire. »
         </p>
+        <p className="proverbe-rituel mt-2">
+          {`“${proverbe}”`}
+        </p>
       </section>
 
-      {/* Contenu principal */}
+      {/* 📬 Formulaire de contact */}
       <main className="container py-5">
-        <h2 className="text-center mb-4">Contactez-nous</h2>
+        <h2 className="text-center mb-4 titre-rituel">Contactez-nous</h2>
 
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -31,11 +40,12 @@ const Contact = () => {
                 <label htmlFor="message" className="form-label">Votre message</label>
                 <textarea className="form-control" id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">Envoyer</button>
+              <button type="submit" className="btn btn-primary w-100">Envoyer</button>
             </form>
           </div>
         </div>
 
+        {/* 📞 Coordonnées */}
         <div className="text-center mt-5">
           <p><strong>Email :</strong> <a href="mailto:positifaid@live.fr">positifaid@live.fr</a></p>
           <p><strong>Téléphone :</strong> +261 34 11 361 57 oOo +261 32 91 828 83</p>
@@ -47,7 +57,9 @@ const Contact = () => {
           </p>
         </div>
       </main>
-    </Layout>
+
+      <Footer />
+    </div>
   );
 };
 

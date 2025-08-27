@@ -177,3 +177,80 @@ Exemple de proverbe :
 Ce projet est porté par une équipe rigoureuse et solidaire.
 Chaque commit est une note dans notre partition collective.
 Chaque livraison est une célébration de notre unité.
+
+## 🔮 Modules en cours et prochaines étapes
+
+Le projet entre dans une phase fonctionnelle. Voici les modules prioritaires à développer :
+
+### 🎛️ Module Admin
+- `Dashboard.jsx` : Vue d’ensemble des statistiques et accès rapides
+- `UsersPanel.jsx` : Gestion des utilisateurs (ajout, rôles, suppression)
+- `UserCard.jsx` : Affichage individuel avec rôle et statut
+- `AdminRoutes.js` : Sécurisation des routes backend pour les admins
+
+### 🎙️ Module Audio
+- `AudioUploader.jsx` : Upload de fichiers `.mp3` avec validation
+- `AudioPlayer.jsx` : Lecture des chants avec contrôle de volume
+- `chantController.js` : Backend pour gérer les fichiers audio
+- `chantRoutes.js` : Routes API pour upload, lecture, suppression
+
+### 📜 Module Rituel & Journal
+- `PushJournal.jsx` : Affichage des pushes rituels avec proverbes
+- `journal-des-pousses.md` : Historique technique et culturel
+- `ProverbeSelector.js` : Générateur de proverbes aléatoires pour chaque commit
+
+---
+
+## 👥 Rôles et permissions
+
+| Rôle       | Accès aux modules                  | Actions autorisées                     |
+|------------|------------------------------------|----------------------------------------|
+| Admin      | Tous les modules                   | CRUD utilisateurs, audio, journal      |
+| Éditeur    | Audio, Journal                     | Upload audio, consulter pushes         |
+| Visiteur   | Lecture audio uniquement           | Aucun accès en écriture                |
+
+---
+
+## 🔄 Rituel de pousse et de visibilité
+
+Chaque ajout, modification ou correction fonctionnelle suit ce rituel :
+
+1. ✅ Vérification avec `check-cantoria.cjs`
+2. 📘 Mise à jour du guide d’onboarding
+3. 📲 Partage sur WhatsApp avec modules et rôles impactés
+4. ✨ Commit et push avec alias `git pousse`
+5. 🎉 Célébration avec proverbe malgache
+
+**Exemple de message :**  
+_“Ny asa vita miaraka no maharitra.”_ — Le travail accompli ensemble est durable.
+
+---
+
+## 📘 Journal des pushes
+
+Un fichier `journal-des-pousses.md` est mis à jour à chaque livraison. Il contient :
+- La date
+- Le type de modification
+- Les modules concernés
+- Le proverbe associé
+
+---
+
+## 🛠 Scripts et automatisations à venir
+
+- Script PowerShell `pousse-rituel.ps1` avec description et proverbe aléatoire
+- Alias Git pour les merges rituels
+- Générateur de messages WhatsApp prêts à copier
+
+---
+
+## 🌟 Proverbes rituels
+
+Chaque étape est accompagnée d’un proverbe malgache pour renforcer l’esprit d’équipe :
+
+- _“Ny feo mitambatra no mahery”_ — La voix unie est puissante  
+- _“Ny fanazavana zaraina no mampitombo fahalalana”_ — Le savoir partagé multiplie la connaissance  
+- _“Ny asa vita miaraka no maharitra”_ — Le travail accompli ensemble est durable  
+- _“Ny fankasitrahana no mampitombo herim-po”_ — La reconnaissance renforce le courage
+
+---

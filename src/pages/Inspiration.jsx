@@ -1,7 +1,9 @@
-// src/pages/Inspiration.jsx
 import React from 'react';
-import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProverbeSelector from '../components/ProverbeSelector';
 import { Link } from 'react-router-dom';
+import '../styles/poesie.css';
 
 const inspirations = [
   {
@@ -25,20 +27,27 @@ const inspirations = [
 ];
 
 const Inspiration = () => {
+  const proverbe = ProverbeSelector();
+
   return (
-    <Layout>
-      {/* Citation d’ouverture */}
+    <div className="inspiration-container">
+      <Header />
+
+      {/* 🎨 Citation d’ouverture */}
       <section className="bg-light text-center py-3">
         <p className="fst-italic text-secondary mb-0">
           « L'art sacré est une prière que l'on partage sans mot. »
         </p>
+        <p className="proverbe-rituel mt-2">
+          {`“${proverbe}”`}
+        </p>
       </section>
 
-      {/* Contenu principal */}
+      {/* 🌟 Contenu principal */}
       <main className="container py-5">
-        <h2 className="text-center mb-4">Nos Inspirations</h2>
+        <h2 className="text-center mb-4 titre-rituel">Nos Inspirations</h2>
 
-        <p className="text-center mb-5">
+        <p className="text-center mb-5 intro-rituelle">
           Le CAST puise son souffle dans des œuvres qui parlent au cœur, dans des traditions sacrées et contemporaines.
           Nos choix musicaux reflètent un équilibre entre ferveur, beauté et universalité.
         </p>
@@ -58,10 +67,14 @@ const Inspiration = () => {
         </div>
 
         <div className="text-center mt-5">
-          <Link to="/Contact" className="btn btn-primary">Partager votre inspiration</Link>
+          <Link to="/contact" className="btn btn-primary">
+            Partager votre inspiration
+          </Link>
         </div>
       </main>
-    </Layout>
+
+      <Footer />
+    </div>
   );
 };
 

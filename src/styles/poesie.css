@@ -1,0 +1,209 @@
+/* 🎧 Audio Player */
+.audio-player {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-left: 4px solid #6a1b9a;
+  background: linear-gradient(to right, #f3e5f5, #ede7f6);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(106, 27, 154, 0.2);
+}
+
+.audio-title {
+  font-size: 1.2rem;
+  color: #6a1b9a;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.audio-title:hover {
+  text-shadow: 0 0 8px rgba(106, 27, 154, 0.4);
+  transform: scale(1.02);
+}
+
+.audio-element {
+  width: 100%;
+}
+
+/* 🎤 Page Notre Voix */
+.notre-voix-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fdf6e3, #e0f7fa);
+  color: #333;
+  border-radius: 12px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.titre-rituel {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #6a1b9a;
+  transition: all 0.3s ease;
+}
+
+.titre-rituel:hover {
+  text-shadow: 0 0 8px rgba(106, 27, 154, 0.4);
+  transform: scale(1.02);
+}
+
+.intro-rituelle {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.audio-section,
+.journal-section {
+  margin: 2rem 0;
+}
+
+.footer-rituel {
+  text-align: center;
+  margin-top: 3rem;
+  font-weight: bold;
+  color: #00796b;
+}
+
+/* 📜 Proverbe rituel */
+.proverbe-rituel {
+  text-align: center;
+  font-style: italic;
+  color: #4e342e;
+  margin-top: 2rem;
+  opacity: 0.8;
+  animation: fadeIn 2s ease-in;
+}
+
+/* ✨ Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+/* 🔐 AuthForm Styles */
+.auth-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fff3e0, #e3f2fd);
+  color: #333;
+  border-radius: 12px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.auth-container h2.titre-rituel {
+  font-size: 2rem;
+  color: #0277bd;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-container .intro-rituelle {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4e342e;
+  opacity: 0.9;
+}
+
+.auth-container form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.auth-container button:hover {
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+}
+.contact-container {
+  animation: fadeInUp 1s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fffde7, #e1f5fe);
+  color: #333;
+  border-radius: 12px;
+}
+.engagement-container {
+  animation: fadeInUp 1s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fff8e1, #e0f2f1);
+  color: #333;
+  border-radius: 12px;
+}
+.espace-membre-container {
+  animation: fadeInUp 1s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fce4ec, #e3f2fd);
+  color: #333;
+  border-radius: 12px;
+}
+
+.upload-zone {
+  background-color: #f3f3f3;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+ button {
+  transition: all 0.3s ease;
+}
+
+.social-login {
+  margin-top: 1rem;
+}
+
+.social-login button {
+  min-width: 140px;
+  transition: all 0.3s ease;
+}
+
+.social-login button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+.inspiration-container {
+  animation: fadeInUp 1s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fffde7, #e1f5fe);
+  color: #333;
+  border-radius: 12px;
+}
+
+.zoomable {
+  transition: transform 0.3s ease;
+}
+
+.zoomable:hover {
+  transform: scale(1.05);
+}
+.auth-container {
+  animation: fadeInUp 0.8s ease-out;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #fff3e0, #e3f2fd);
+  color: #333;
+  border-radius: 12px;
+}

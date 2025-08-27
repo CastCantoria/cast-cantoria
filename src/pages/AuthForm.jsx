@@ -1,22 +1,44 @@
-// src/pages/AuthForm.jsx
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProverbeSelector from '../components/ProverbeSelector';
+import SocialLogin from '../components/SocialLogin';
+import '../styles/poesie.css';
 
 const AuthForm = () => {
-  const [mode, setMode] = useState('login'); // 'login' or 'signup'
+  const [mode, setMode] = useState('login');
+  const [rituelMessage, setRituelMessage] = useState('');
+  const proverbe = ProverbeSelector();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 🔐 Traitement du formulaire ici
     console.log(`${mode} form submitted`);
   };
 
+  const handleGoogleLogin = () => {
+    const audio = new Audio('/assets/audio/cast-chant2.mp3');
+    audio.play();
+    setRituelMessage("Ny fidirana amin’ny fiaraha-miasa dia manomboka amin’ny fahatokisana.");
+  };
+
+  const handleFacebookLogin = () => {
+    const audio = new Audio('/assets/audio/voix-sacre.mp3');
+    audio.play();
+    setRituelMessage("Ny fifandraisana tsara dia manomboka amin’ny teny mamy.");
+  };
+
   return (
-    <Layout>
+    <div className="auth-container">
+      <Header />
+
       <div className="container py-5">
-        <h2 className="text-center mb-4">
+        <h2 className="text-center mb-4 titre-rituel">
           {mode === 'login' ? 'Connexion' : 'Inscription'}
         </h2>
+
+        <p className="intro-rituelle text-center mb-4">
+          <em>{`“${proverbe}”`}</em>
+        </p>
 
         <div className="text-center mb-4">
           <button
@@ -60,18 +82,21 @@ const AuthForm = () => {
           <button type="submit" className="btn btn-success w-100">
             {mode === 'login' ? 'Se connecter' : 'Créer mon compte'}
           </button>
-
-          <hr />
-
-          <button type="button" className="btn btn-outline-danger w-100">
-            <span className="bi bi-google"></span> Connexion avec Google
-          </button>
-          <button type="button" className="btn btn-outline-primary w-100 mt-2">
-            <span className="bi bi-facebook"></span> Connexion avec Facebook
-          </button>
         </form>
+
+        <hr />
+
+        <SocialLogin onGoogle={handleGoogleLogin} onFacebook={handleFacebookLogin} />
+
+        {rituelMessage && (
+          <p className="proverbe-rituel mt-4 text-center">
+            {`“${rituelMessage}”`}
+          </p>
+        )}
       </div>
-    </Layout>
+
+      <Footer />
+    </div>
   );
 };
 
