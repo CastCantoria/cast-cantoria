@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import LoginForm from '../components/Auth/LoginForm';
 import SignupForm from '../components/Auth/SignupForm';
 import SocialLogin from '../components/SocialLogin';
 import ProverbeSelector from '../components/ProverbeSelector';
+import useAuthStore from '../stores/authStore';
 import { auth, googleProvider, facebookProvider } from '../firebase';
 import { signInWithPopup } from 'firebase/auth';
 import '../styles/poesie.css';
 
 const EspaceMembre = () => {
-  const [authMode, setAuthMode] = useState(null);
+  const { authMode, setAuthMode, resetAuthMode } = useAuthStore();
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [rituelMessage, setRituelMessage] = useState('');
   const proverbe = ProverbeSelector();
+
+  useEffect(() => {
+    const audio = new Audio('/assets/audio/entree-espace.mp3');
+    audio.play();
+  }, []);
 
   const handleFileClick = () => {
     const input = document.getElementById('fileInput');
@@ -84,10 +90,7 @@ const EspaceMembre = () => {
             <strong>Bienvenue !</strong> Connectez-vous ou inscrivez-vous pour rejoindre le Chœur Artistique & Spirituel de Tanà.
           </p>
 
-          <div className="button-group mb-3">
-            <button className="btn btn-primary me-2" onClick={() => setAuthMode('login')}>Se connecter</button>
-            <button className="btn btn-secondary" onClick={() => setAuthMode('signup')}>S’inscrire</button>
-          </div>
+          {/* ✅ Les deux boutons ont été retirés ici */}
 
           {authMode === 'login' && <LoginForm />}
           {authMode === 'signup' && <SignupForm />}

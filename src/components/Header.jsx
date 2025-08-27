@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useUser from '../hooks/useUser';
+import useAuthStore from '../stores/authStore'; // ✅ Ajouté
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 
 const Header = () => {
   const { user } = useUser();
   const navigate = useNavigate();
+  const { setAuthMode } = useAuthStore(); // ✅ Ajouté
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -15,6 +17,7 @@ const Header = () => {
   };
 
   const handleLoginRedirect = () => {
+    setAuthMode('login'); // ✅ Active le formulaire de connexion
     navigate('/espace-membre');
   };
 
@@ -83,12 +86,6 @@ const Header = () => {
                 <li><Link className="dropdown-item" to="/engagement">Engagements</Link></li>
                 <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
               </ul>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link text-warning fw-bold" to="/espace-membre">
-                Espace membre
-              </Link>
             </li>
 
             {/* 👤 État de connexion */}
