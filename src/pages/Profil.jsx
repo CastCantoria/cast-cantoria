@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import ProverbeSelector from '../components/ProverbeSelector';
 import useUser from '../hooks/useUser';
 import { Navigate } from 'react-router-dom';
+import ProfilePage from '../components/ProfilePage';
 import '../styles/poesie.css';
 
 const Profil = () => {
@@ -28,8 +29,8 @@ const Profil = () => {
     <div className="auth-container">
       <Header />
 
-      <div className="container py-5 text-center">
-        <h2 className="mb-4 titre-rituel">
+      <div className="container py-4 text-center">
+        <h2 className="mb-3 titre-rituel">
           Bienvenue, {user.displayName || 'Membre'} 👋
         </h2>
 
@@ -37,18 +38,9 @@ const Profil = () => {
           {`“${proverbe}”`}
         </p>
 
-        {user.photoURL && (
-          <img
-            src={user.photoURL}
-            alt="Photo de profil"
-            className="rounded-circle shadow-sm mb-3"
-            style={{ width: '120px', height: '120px', objectFit: 'cover' }}
-          />
-        )}
+        <ProfilePage />
 
-        <p><strong>Email :</strong> {user.email}</p>
-
-        <button className="btn btn-outline-danger mt-4" onClick={logout}>
+        <button className="btn btn-outline-danger mt-5" onClick={logout}>
           Se déconnecter
         </button>
       </div>
