@@ -15,9 +15,11 @@ import Admin from './pages/Admin';
 import AuthForm from './pages/AuthForm';
 import Connexion from './pages/Connexion';
 import Profil from './pages/Profil';
-import Rejoindre from './pages/Rejoindre';      // ✅ Ajout
-import APropos from './pages/APropos';          // ✅ Ajout
-import Accueil from './pages/Accueil';          // ✅ Ajout
+import Rejoindre from './pages/Rejoindre';
+import APropos from './pages/APropos';
+import Accueil from './pages/Accueil';
+import Intentions from './pages/Intentions';
+import SoumettreIntention from './pages/SoumettreIntention'; // ✅ Nouvelle page
 
 // Protection des routes
 import PrivateRoute from './components/PrivateRoute';
@@ -26,9 +28,9 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="/accueil" element={<Accueil />} />           {/* ✅ Ajout */}
-      <Route path="/a-propos" element={<APropos />} />           {/* ✅ Ajout */}
-      <Route path="/rejoindre" element={<Rejoindre />} />        {/* ✅ Ajout */}
+      <Route path="/accueil" element={<Accueil />} />
+      <Route path="/a-propos" element={<APropos />} />
+      <Route path="/rejoindre" element={<Rejoindre />} />
       <Route path="/presentation" element={<Presentation />} />
       <Route path="/inspiration" element={<Inspiration />} />
       <Route path="/gallery" element={<Gallery />} />
@@ -40,6 +42,8 @@ const App = () => {
       <Route path="/admin" element={<Admin />} />
       <Route path="/authform" element={<AuthForm />} />
       <Route path="/connexion" element={<Connexion />} />
+      <Route path="/intentions" element={<Intentions />} />
+      <Route path="/soumettre-intention" element={<SoumettreIntention />} /> {/* ✅ Nouvelle route */}
 
       {/* 🔐 Route protégée */}
       <Route
