@@ -4,7 +4,7 @@ export default function CastCantoria() {
   const user = getAuth().currentUser;
 
   return (
-    <div className="cast-cantoria">
+    <div className="cast-84d3f">
       <h2>Espace Membre 🌟</h2>
       {user ? (
         <div>

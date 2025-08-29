@@ -1,5 +1,5 @@
 # Chanter-Cantoria.ps1
-# Rituel de déploiement pour Cast-Cantoria
+# Rituel de déploiement pour cast-84d3f
 
 function Ajouter-AuJournal($message) {
     $journalPath = "$PSScriptRoot\journal-rituel.txt"
@@ -9,7 +9,7 @@ function Ajouter-AuJournal($message) {
 
 function Chanter-Cantoria {
     Clear-Host
-    Write-Host "Bienvenue dans le rituel de déploiement Cast-Cantoria" -ForegroundColor Cyan
+    Write-Host "Bienvenue dans le rituel de déploiement cast-84d3f" -ForegroundColor Cyan
     Write-Host '"Ny feo madio no mitondra hafatra masina."' -ForegroundColor Yellow
     Write-Host ""
 

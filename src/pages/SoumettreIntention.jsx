@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 const SoumettreIntention = () => {
   const [name, setName] = useState('');
@@ -11,10 +11,13 @@ const SoumettreIntention = () => {
     e.preventDefault();
 
     try {
-      const docRef = await addDoc(collection(db, 'intentions'), {
+      await addDoc(collection(db, 'intentions'), {
         name,
         intention,
-        date: new Date().toISOString()
+        date: Timestamp.now(),
+        status: 'soumise',
+        language: 'fr',
+        tags: ['prière']
       });
 
       setMessage('🙏 Intention enregistrée avec succès.');

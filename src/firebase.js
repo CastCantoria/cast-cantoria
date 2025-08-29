@@ -1,18 +1,20 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore'; // 🔧 Ajouté pour Firestore
+import { getFirestore } from 'firebase/firestore';
 
+// ✅ Configuration via .env
 const firebaseConfig = {
-  apiKey: "AIzaSyAoEx_uI33l7NdccnaDFIo795MojTW5WJc",
-  authDomain: "cast-cantoria.firebaseapp.com",
-  projectId: "cast-cantoria",
-  storageBucket: "cast-cantoria.firebasestorage.app",
-  messagingSenderId: "952519116536",
-  appId: "1:952519116536:web:eb3b6b5a7bb2ba27c69d0d",
-  measurementId: "G-NQJ5YLTGEJ"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-const app = initializeApp(firebaseConfig);
+// ✅ Initialisation unique
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
 
 // 🔐 Authentification
 export const auth = getAuth(app);

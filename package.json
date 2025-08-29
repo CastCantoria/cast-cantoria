@@ -1,13 +1,13 @@
 {
-  "name": "cast-cantoria",
+  "name": "cast-84d3f",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-"scripts": {
+  "scripts": {
   "dev": "vite",
   "dev:frontend": "vite",
   "dev:backend": "node server/app.js",
-  "dev:full": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+  "dev:all": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
   "build": "vite build",
   "lint": "eslint .",
   "preview": "vite preview",
@@ -24,7 +24,7 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
-    "firebase": "^12.1.0",
+    "firebase": "^12.2.1",
     "framer-motion": "^12.23.12",
     "jsonwebtoken": "^9.0.2",
     "papaparse": "^5.5.3",
@@ -52,13 +52,13 @@
   "main": "deploy.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CastCantoria/cast-cantoria.git"
+    "url": "git+https://github.com/CastCantoria/cast-84d3f.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CastCantoria/cast-cantoria/issues"
+    "url": "https://github.com/CastCantoria/cast-84d3f/issues"
   },
-  "homepage": "https://github.com/CastCantoria/cast-cantoria#readme"
+  "homepage": "https://github.com/CastCantoria/cast-84d3f#readme"
 }

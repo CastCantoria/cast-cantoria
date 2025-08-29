@@ -30,4 +30,4 @@ jobs:
       - name: Deploy to Firebase Hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: firebase deploy --only hosting --project cast-cantoria-277b1
+        run: firebase deploy --only hosting --project cast-84d3f-277b1

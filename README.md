@@ -33,8 +33,8 @@ Plateforme web moderne construite avec **React + Vite**, conçue pour une expér
 ## 🔧 Installation locale
 
 ```bash
-git clone https://github.com/ton-repo/cast-cantoria.git
-cd cast-cantoria
+git clone https://github.com/ton-repo/cast-84d3f.git
+cd cast-84d3f
 npm install
 npm run dev
 
@@ -74,18 +74,18 @@ VITE_FIREBASE_AUTH_DOMAIN=...
 📄 Licence
 MIT © Tovoniaina
 =======
-# 🎼 Cast-Cantoria
+# 🎼 cast-84d3f
 
 **Ny feo mitambatra no mahery** — La voix unie est puissante.  
-Bienvenue dans le projet **Cast-Cantoria**, une plateforme collaborative dédiée à la gestion et à la diffusion du chant sacré.
+Bienvenue dans le projet **cast-84d3f**, une plateforme collaborative dédiée à la gestion et à la diffusion du chant sacré.
 
 ---
 
 ## 📦 Structure du projet
 
 Le projet est organisé pour faciliter la contribution, la vérification et la livraison :
-📁 Structure du projet Cast-Cantoria
-cast-cantoria/
+📁 Structure du projet cast-84d3f
+cast-84d3f/
 ├── src/
 │   ├── components/
 │   │   └── admin/              # Composants spécifiques à l'administration

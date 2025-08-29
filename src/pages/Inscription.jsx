@@ -5,6 +5,8 @@ import ProverbeSelector from '../components/ProverbeSelector';
 import SocialLogin from '../components/SocialLogin';
 import '../styles/poesie.css';
 
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+
 const Inscription = () => {
   const [formData, setFormData] = useState({
     lastname: '',
@@ -25,9 +27,30 @@ const Inscription = () => {
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
+    if (formData.email !== formData.confirmEmail) {
+      setRituelMessage("⚠️ Les adresses e-mail ne correspondent pas.");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setRituelMessage("⚠️ Les mots de passe ne correspondent pas.");
+      return;
+    }
+
+    const auth = getAuth();
+    try {
+      await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      const audio = new Audio('/assets/audio/cast-chant2.mp3');
+      audio.play();
+      setRituelMessage("🎉 Compte créé avec succès. Ny fanombohana tsara dia mitondra fahombiazana.");
+      // Optionnel : enregistrer les autres infos dans Firestore ici
+    } catch (error) {
+      console.error('Erreur inscription:', error);
+      setRituelMessage("⚠️ " + error.message);
+    }
   };
 
   const handleGoogleSignup = () => {
@@ -73,16 +96,16 @@ const Inscription = () => {
             <input type="email" className="form-control" id="email" value={formData.email} onChange={handleChange} required />
           </div>
           <div className="mb-3">
-            <label htmlFor="confirm-email" className="form-label">Confirmer l’adresse e-mail</label>
-            <input type="email" className="form-control" id="confirm-email" value={formData.confirmEmail} onChange={handleChange} required />
+            <label htmlFor="confirmEmail" className="form-label">Confirmer l’adresse e-mail</label>
+            <input type="email" className="form-control" id="confirmEmail" value={formData.confirmEmail} onChange={handleChange} required />
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">Mot de passe</label>
             <input type="password" className="form-control" id="password" value={formData.password} onChange={handleChange} required />
           </div>
           <div className="mb-3">
-            <label htmlFor="confirm-password" className="form-label">Confirmer le mot de passe</label>
-            <input type="password" className="form-control" id="confirm-password" value={formData.confirmPassword} onChange={handleChange} required />
+            <label htmlFor="confirmPassword" className="form-label">Confirmer le mot de passe</label>
+            <input type="password" className="form-control" id="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
           </div>
 
           <button type="submit" className="btn btn-primary w-100">Créer mon compte</button>

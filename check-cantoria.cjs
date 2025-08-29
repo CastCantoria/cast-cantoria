@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log("🎼 Vérification du projet Cast-Cantoria...");
+console.log("🎼 Vérification du projet cast-84d3f...");
 
 // 📁 Dossiers essentiels
 const requiredFolders = [

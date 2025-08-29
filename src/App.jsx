@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'; // ✅ plus de BrowserRouter ici
 
 // Pages
 import Main from './pages/Main';
@@ -19,7 +19,8 @@ import Rejoindre from './pages/Rejoindre';
 import APropos from './pages/APropos';
 import Accueil from './pages/Accueil';
 import Intentions from './pages/Intentions';
-import SoumettreIntention from './pages/SoumettreIntention'; // ✅ Nouvelle page
+import SoumettreIntention from './pages/SoumettreIntention';
+import AdminIntentions from './pages/AdminIntentions';
 
 // Protection des routes
 import PrivateRoute from './components/PrivateRoute';
@@ -43,7 +44,8 @@ const App = () => {
       <Route path="/authform" element={<AuthForm />} />
       <Route path="/connexion" element={<Connexion />} />
       <Route path="/intentions" element={<Intentions />} />
-      <Route path="/soumettre-intention" element={<SoumettreIntention />} /> {/* ✅ Nouvelle route */}
+      <Route path="/soumettre-intention" element={<SoumettreIntention />} />
+      <Route path="/admin-intentions" element={<AdminIntentions />} />
 
       {/* 🔐 Route protégée */}
       <Route

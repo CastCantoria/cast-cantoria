@@ -1,5 +1,5 @@
 specVersion: "v1"
-serviceId: "cast-cantoria"
+serviceId: "cast-84d3f"
 location: "us-central1"
 schema:
   source: "./schema"
@@ -7,6 +7,6 @@ schema:
     postgresql:
       database: "fdcdb"
       cloudSql:
-        instanceId: "cast-cantoria-fdc"
+        instanceId: "cast-84d3f-fdc"
       # schemaValidation: "COMPATIBLE"
 connectorDirs: ["./example"]
