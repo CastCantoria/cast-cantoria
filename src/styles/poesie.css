@@ -207,3 +207,30 @@
   color: #333;
   border-radius: 12px;
 }
+.avatar, .initials {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: #fff;
+  color: #333;
+  transition: box-shadow 0.3s ease;
+  animation: fadeInGlow 0.8s ease-out;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.avatar:hover, .initials:hover {
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
+}
+
+@keyframes fadeInGlow {
+  0% { opacity: 0; box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
+  100% { opacity: 1; box-shadow: 0 0 8px rgba(255, 215, 0, 0.6); }
+}

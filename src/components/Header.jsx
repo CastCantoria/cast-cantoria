@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useUser from '../hooks/useUser';
-import useAuthStore from '../stores/authStore'; // ✅ Ajouté
+import useAuthStore from '../stores/authStore';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 
 const Header = () => {
   const { user } = useUser();
   const navigate = useNavigate();
-  const { setAuthMode } = useAuthStore(); // ✅ Ajouté
+  const { setAuthMode } = useAuthStore();
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   const handleLoginRedirect = () => {
-    setAuthMode('login'); // ✅ Active le formulaire de connexion
+    setAuthMode('login');
     navigate('/espace-membre');
   };
 
@@ -27,7 +27,7 @@ const Header = () => {
         {/* 🌟 Logo et titre */}
         <Link className="navbar-brand text-light d-flex align-items-center" to="/">
           <img
-            src="assets/images/logo-cast.png"
+            src="/assets/images/logo-cast.png"
             alt="Logo C.A.S.T."
             height="50"
             className="me-2"
@@ -56,11 +56,7 @@ const Header = () => {
             </li>
 
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle text-light"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
+              <a className="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">
                 À propos
               </a>
               <ul className="dropdown-menu">
@@ -75,11 +71,7 @@ const Header = () => {
             </li>
 
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle text-light"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
+              <a className="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">
                 Rejoindre
               </a>
               <ul className="dropdown-menu">
@@ -88,34 +80,59 @@ const Header = () => {
               </ul>
             </li>
 
-            {/* 👤 État de connexion */}
-            {user ? (
-              <>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle text-success"
-                    href="#"
-                    data-bs-toggle="dropdown"
+            {/* 👤 Zone utilisateur */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle d-flex align-items-center"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                {!user ? (
+                  <div
+                    className="rounded-circle bg-warning text-dark fw-bold d-flex align-items-center justify-content-center"
+                    style={{ width: '36px', height: '36px', boxShadow: '0 0 8px rgba(255,215,0,0.6)', cursor: 'pointer' }}
+                    onClick={handleLoginRedirect}
+                    title="Se connecter"
                   >
-                    {user.displayName || user.email}
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-end">
+                    <i className="bi bi-person-fill"></i>
+                  </div>
+                ) : user.photoURL ? (
+                  <img
+                    src={user.photoURL}
+                    alt="avatar"
+                    className="rounded-circle me-2"
+                    style={{ width: '36px', height: '36px', objectFit: 'cover', boxShadow: '0 0 8px rgba(255,215,0,0.6)' }}
+                  />
+                ) : (
+                  <div
+                    className="rounded-circle bg-warning text-dark fw-bold d-flex align-items-center justify-content-center me-2"
+                    style={{ width: '36px', height: '36px', boxShadow: '0 0 8px rgba(255,215,0,0.6)' }}
+                  >
+                    {user.displayName?.charAt(0).toUpperCase() || 'M'}
+                  </div>
+                )}
+              </a>
+
+              {/* 🔽 Dropdown utilisateur */}
+              <ul className="dropdown-menu dropdown-menu-end">
+                {!user ? (
+                  <li>
+                    <button className="dropdown-item" onClick={handleLoginRedirect}>
+                      Se connecter
+                    </button>
+                  </li>
+                ) : (
+                  <>
                     <li><Link className="dropdown-item" to="/profil">Mon profil</Link></li>
                     <li>
                       <button className="dropdown-item text-danger" onClick={handleLogout}>
                         Se déconnecter
                       </button>
                     </li>
-                  </ul>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item">
-                <button className="btn btn-warning ms-2 fw-bold" onClick={handleLoginRedirect}>
-                  Se connecter
-                </button>
-              </li>
-            )}
+                  </>
+                )}
+              </ul>
+            </li>
           </ul>
         </div>
       </nav>

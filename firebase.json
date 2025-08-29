@@ -1,6 +1,7 @@
 {
+  "site": "cast-cantoria-277b1",
   "hosting": {
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",

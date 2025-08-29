@@ -68,6 +68,12 @@ const EspaceMembre = () => {
     }
   };
 
+  const isAudioSupported = (type) =>
+    ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/ogg'].includes(type);
+
+  const isVideoSupported = (type) =>
+    ['video/mp4', 'video/webm'].includes(type);
+
   return (
     <div className="espace-membre-container">
       <Header />
@@ -89,8 +95,6 @@ const EspaceMembre = () => {
           <p className="section-intro intro-rituelle">
             <strong>Bienvenue !</strong> Connectez-vous ou inscrivez-vous pour rejoindre le Chœur Artistique & Spirituel de Tanà.
           </p>
-
-          {/* ✅ Les deux boutons ont été retirés ici */}
 
           {authMode === 'login' && <LoginForm />}
           {authMode === 'signup' && <SignupForm />}
@@ -135,16 +139,27 @@ const EspaceMembre = () => {
                 {file.type.startsWith('image/') && (
                   <img src={URL.createObjectURL(file)} alt={file.name} className="card-img-top" />
                 )}
+
                 {file.type.startsWith('audio/') && (
                   <audio controls className="w-100">
-                    <source src={URL.createObjectURL(file)} type={file.type} />
+                    {isAudioSupported(file.type) ? (
+                      <source src={URL.createObjectURL(file)} type={file.type} />
+                    ) : (
+                      <p className="text-danger">Format audio non pris en charge : {file.type}</p>
+                    )}
                   </audio>
                 )}
+
                 {file.type.startsWith('video/') && (
                   <video controls className="w-100">
-                    <source src={URL.createObjectURL(file)} type={file.type} />
+                    {isVideoSupported(file.type) ? (
+                      <source src={URL.createObjectURL(file)} type={file.type} />
+                    ) : (
+                      <p className="text-danger">Format vidéo non pris en charge : {file.type}</p>
+                    )}
                   </video>
                 )}
+
                 <div className="card-body">
                   <p className="card-text text-center">{file.name}</p>
                 </div>
