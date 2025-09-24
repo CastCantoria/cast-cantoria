@@ -3,11 +3,8 @@
     <!-- HEADER fixe en haut -->
     <AdminHeader class="flex-shrink-0" />
 
-    <!-- CONTENU : sidebar à gauche + contenu à droite -->
+    <!-- CONTENU : chaque page gère son propre sidebar -->
     <div class="flex flex-1 overflow-hidden">
-      <!-- Sidebar fixe -->
-      <AdminSidebar class="flex-shrink-0" />
-
       <!-- Zone de contenu scrollable -->
       <main class="flex-1 overflow-y-auto p-6 bg-white rounded-tl-xl shadow-inner">
         <router-view />
@@ -21,7 +18,6 @@
 
 <script setup>
 import AdminHeader from '@/components/admin/AdminHeader.vue'
-import AdminSidebar from '@/components/admin/AdminSidebar.vue'
 import AdminFooter from '@/components/admin/AdminFooter.vue'
 </script>
 
