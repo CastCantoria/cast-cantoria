@@ -1,0 +1,92 @@
+:root {
+  font-family: 'Inter', 'Cinzel', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #FFD700;
+  background-color: #000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #FFD700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #FFA500;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #000;
+  color: #C0C0C0;
+}
+
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid #FFD700;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #111;
+  color: #FFD700;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+button:hover {
+  background-color: #222;
+  border-color: #FFA500;
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid #FFD700;
+}
+
+.card {
+  padding: 2em;
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a {
+    color: #213547;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+    color: #213547;
+    border-color: #ccc;
+  }
+}

@@ -1,0 +1,87 @@
+# 🖼️ Images non utilisées
+
+| Fichier image | Statut       | Suggestion                              |
+|---------------|--------------|-----------------------------------------|
+| concerts/concert1.jpg | Préservée | Conservation intentionnelle |
+| gallery/galerie1.jpg | Préservée | Conservation intentionnelle |
+| gallery/galerie2.jpg | Orpheline | Archiver ou supprimer |
+| gallery/galerie3.jpg | Orpheline | Archiver ou supprimer |
+| gallery/galerie4.jpg | Orpheline | Archiver ou supprimer |
+| gallery/galerie5.jpg | Orpheline | Archiver ou supprimer |
+| gallery/galerie6.jpg | Orpheline | Archiver ou supprimer |
+| gallery/galerie7.jpg | Orpheline | Archiver ou supprimer |
+| gallery/galerie8.jpg | Orpheline | Archiver ou supprimer |
+| gallery/photo1.jpg | Orpheline | Archiver ou supprimer |
+| gallery/photo2.jpg | Orpheline | Archiver ou supprimer |
+| gallery/photo3.jpg | Orpheline | Archiver ou supprimer |
+| gallery/photo4.jpg | Orpheline | Archiver ou supprimer |
+| gallery/photo5.jpg | Orpheline | Archiver ou supprimer |
+| gallery/photo6.jpg | Orpheline | Archiver ou supprimer |
+| hero/inspiration1.jpg | Orpheline | Archiver ou supprimer |
+| hero/inspiration3.jpg | Orpheline | Archiver ou supprimer |
+| hero/photo-choeur.jpeg | Orpheline | Archiver ou supprimer |
+| inspiration/inspiration.JPG | Orpheline | Archiver ou supprimer |
+| inspiration/inspiration1.jpg | Orpheline | Archiver ou supprimer |
+| inspiration/inspiration2.jpg | Orpheline | Archiver ou supprimer |
+| inspiration/inspiration3.jpg | Orpheline | Archiver ou supprimer |
+| logos/favicon-cantoria.png | Orpheline | Archiver ou supprimer |
+| logos/google-icon.svg | Orpheline | Archiver ou supprimer |
+| logos/logo-cantoria.png | Orpheline | Archiver ou supprimer |
+| logos/vite.svg | Orpheline | Archiver ou supprimer |
+| membres/avatar.jpg | Orpheline | Archiver ou supprimer |
+| membres/avatar.png | Orpheline | Archiver ou supprimer |
+| membres/lucien-emmanuel.png | Orpheline | Archiver ou supprimer |
+| membres/pcast15.jpg | Orpheline | Archiver ou supprimer |
+| membres/pcast16.jpg | Orpheline | Archiver ou supprimer |
+| membres/pcast17.jpg | Orpheline | Archiver ou supprimer |
+| membres/pcast18.jpg | Orpheline | Archiver ou supprimer |
+| membres/pcast19.jpg | Orpheline | Archiver ou supprimer |
+| membres/pcast20.jpg | Orpheline | Archiver ou supprimer |
+| unused/cast-chorale.jpg | Orpheline | Archiver ou supprimer |
+| unused/cathédrale majestueu.png | Orpheline | Archiver ou supprimer |
+| unused/chorale-1.jpg | Orpheline | Archiver ou supprimer |
+| unused/chorale-2.jpg | Orpheline | Archiver ou supprimer |
+| unused/chorale-3.jpg | Orpheline | Archiver ou supprimer |
+| unused/chorale-4.jpg | Orpheline | Archiver ou supprimer |
+| unused/chorale-5.jpg | Orpheline | Archiver ou supprimer |
+| unused/collaborations.png | Orpheline | Archiver ou supprimer |
+| unused/diffusion.png | Orpheline | Archiver ou supprimer |
+| unused/DSC09375.JPG | Orpheline | Archiver ou supprimer |
+| unused/fondateur-cast.jpg | Orpheline | Archiver ou supprimer |
+| unused/instrument-flute.jpg | Orpheline | Archiver ou supprimer |
+| unused/instrument-piano.jpg | Orpheline | Archiver ou supprimer |
+| unused/instrument-violon.jpg | Orpheline | Archiver ou supprimer |
+| unused/lieux.png | Orpheline | Archiver ou supprimer |
+| unused/logo-cantoria.png | Orpheline | Archiver ou supprimer |
+| unused/logo-cast.jpg | Orpheline | Archiver ou supprimer |
+| unused/logo-cast.png | Orpheline | Archiver ou supprimer |
+| unused/logo-O35E636P.png | Orpheline | Archiver ou supprimer |
+| unused/logo.png | Orpheline | Archiver ou supprimer |
+| unused/logocast.png | Orpheline | Archiver ou supprimer |
+| unused/origines.png | Orpheline | Archiver ou supprimer |
+| unused/partition-sacree.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast01.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast03.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast04.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast05.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast06.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast07.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast08.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast09.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast10.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast11.jpg | Orpheline | Archiver ou supprimer |
+| unused/pcast21.jpg | Orpheline | Archiver ou supprimer |
+| unused/photo-choeur.jpeg | Orpheline | Archiver ou supprimer |
+| unused/photoA.jpg | Orpheline | Archiver ou supprimer |
+| unused/photoB.jpg | Orpheline | Archiver ou supprimer |
+| unused/photoC.jpg | Orpheline | Archiver ou supprimer |
+| unused/photoD.jpg | Orpheline | Archiver ou supprimer |
+| unused/photoE.jpg | Orpheline | Archiver ou supprimer |
+| unused/photoF.jpg | Orpheline | Archiver ou supprimer |
+| unused/portrait.jpg | Orpheline | Archiver ou supprimer |
+| unused/repertoire.png | Orpheline | Archiver ou supprimer |
+| unused/sary1.jpg | Orpheline | Archiver ou supprimer |
+| unused/slide1.jpg | Orpheline | Archiver ou supprimer |
+| unused/slide2.jpg | Orpheline | Archiver ou supprimer |
+| unused/slide3.jpg | Orpheline | Archiver ou supprimer |
+| unused/slide4.jpg | Orpheline | Archiver ou supprimer |

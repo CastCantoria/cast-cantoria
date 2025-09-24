@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+. "$(dirname "$0")/_/husky.sh"
+
+# Lance l'audit complet, mais ne bloque pas le push même en cas d'erreurs
+npm run audit:full || true
