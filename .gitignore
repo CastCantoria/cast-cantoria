@@ -25,3 +25,5 @@ dist-ssr
 
 # Firebase service account (ne pas versionner)
 api/serviceAccountKey.json
+# 🔐 Clé Firebase privée
+backend/api/serviceAccountKey.json
