@@ -8,9 +8,7 @@
     "clean:dev": "rimraf ./frontend/node_modules/.vite && npm run dev:all",
     "lint": "npm-run-all lint:frontend lint:backend",
     "format": "npm-run-all format:frontend format:backend",
-
-    // 👇 Ajout pour Vercel
-    "build:frontend": "npm --prefix frontend run build",
+   "build:frontend": "npm --prefix frontend run build",
     "build:backend": "npm --prefix backend run build || echo 'No backend build step'",
     "build": "npm-run-all build:frontend build:backend",
     "start": "npm --prefix backend start"
