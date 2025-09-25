@@ -1,0 +1,33 @@
+﻿.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.nav-desktop {
+  display: flex;
+  gap: 1rem;
+}
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .burger-btn { display: block; }
+  .nav-desktop {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 1rem;
+    width: 100%;
+  }
+  .nav-desktop.open { display: flex; }
+}
