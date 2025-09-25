@@ -26,7 +26,7 @@ import FloatingAuthBox from './components/FloatingAuthBox.vue'
 import WelcomeBanner from './components/WelcomeBanner.vue'
 import LoadingScreen from './components/LoadingScreen.vue'
 import { useAuthPopup } from './composables/useAuthPopup'
-import { useAuthStore } from '@/stores/authStore.js'
+import { useAuthStore } from './stores/authStore.js' // ✅ chemin relatif
 
 const { isAuthPopupVisible, authMode, closeAuth, autoCloseOnLogin } = useAuthPopup()
 const auth = useAuthStore()

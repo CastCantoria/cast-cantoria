@@ -1,23 +1,22 @@
 {
   "name": "cast-cantoria",
   "version": "1.0.0",
-"scripts": {
-  "dev:backend": "npm --prefix backend run dev",
-  "dev:frontend": "npm --prefix frontend run dev",
-  "dev:all": "npm-run-all --parallel dev:backend dev:frontend",
-  "clean:dev": "rimraf ./frontend/node_modules/.vite && npm run dev:all",
-  "lint": "npm-run-all lint:frontend lint:backend",
-  "format": "npm-run-all format:frontend format:backend",
-  "build:frontend": "npm --prefix frontend run build",
-  "build:backend": "npm --prefix backend run build || echo 'No backend build step'",
-  "build": "npm-run-all build:frontend build:backend",
-  "start": "npm --prefix backend start",
-  "cast:purge": "git filter-repo --path backend/api/serviceAccountKey.json --invert-paths --force || echo '⚠️ Purge déjà effectuée'",
-  "cast:verify": "git log --oneline -n 5",
-  "cast:push-deploy": "git push origin main && vercel --prod",
-  "cast:purge-and-deploy": "npm run cast:purge && npm run cast:verify && npm run cast:push-deploy"
-},
-
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:all": "npm-run-all --parallel dev:backend dev:frontend",
+    "clean:dev": "rimraf ./frontend/node_modules/.vite && npm run dev:all",
+    "lint": "npm-run-all lint:frontend lint:backend",
+    "format": "npm-run-all format:frontend format:backend",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build || echo 'No backend build step'",
+    "build": "npm-run-all build:frontend build:backend",
+    "start": "npm --prefix backend start",
+    "cast:purge": "git filter-repo --path backend/api/serviceAccountKey.json --invert-paths --force || echo '⚠️ Purge déjà effectuée'",
+    "cast:verify": "git log --oneline -n 5",
+    "cast:push-deploy": "git push origin main && vercel --prod",
+    "cast:purge-and-deploy": "npm run cast:purge && npm run cast:verify && npm run cast:push-deploy"
+  },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "rimraf": "^6.0.0",

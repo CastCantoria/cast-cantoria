@@ -6,26 +6,30 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import firebasePlugin from './plugins/firebase.plugin.js'
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
-import { useAuthStore } from '@/stores/authStore.js'
+import { useAuthStore } from './stores/authStore.js' // ✅ chemin relatif pour Vite
 
-const app = createApp(App)
-const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
+async function bootstrap() {
+  const app = createApp(App)
 
-app.use(pinia)
-app.use(router)
-app.use(firebasePlugin)
-app.use(Toast, {
-  position: 'top-right',
-  timeout: 3000,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true
-})
+  const pinia = createPinia()
+  pinia.use(piniaPluginPersistedstate)
+  app.use(pinia)
+  app.use(router)
+  app.use(firebasePlugin)
+  app.use(Toast, {
+    position: 'top-right',
+    timeout: 3000,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true
+  })
 
-const store = useAuthStore()
+  const store = useAuthStore()
 
-// 🔄 Restaurer la session avant le montage
-await store.fetchSession(router)
+  // 🔄 Restaurer la session avant le montage
+  await store.fetchSession(router)
 
-app.mount('#app')
+  app.mount('#app')
+}
+
+bootstrap()
