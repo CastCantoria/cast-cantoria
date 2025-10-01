@@ -13,6 +13,7 @@ import Galerie from '@/views/Galerie.vue'
 import Contact from '@/views/Contact.vue'
 import Profile from '@/views/Profile.vue'
 import Messages from '@/views/Messages.vue'
+import PublicEvents from '@/views/PublicEvents.vue'
 import NotFound from '@/views/NotFound.vue'
 
 // 🛠️ Layout et vues admin
@@ -31,6 +32,7 @@ const routes = [
   { path: '/contact', component: Contact },
   { path: '/profile', component: Profile },
   { path: '/messages', component: Messages },
+  { path: '/evenements', component: PublicEvents },
 
   // 🔐 Déconnexion
   {

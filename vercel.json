@@ -7,18 +7,15 @@
       "config": { "distDir": "frontend/dist" }
     },
     {
-      "src": "backend/**/*.js",
+      "src": "backend/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/$1.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/dist/index.html"
-    }
-  ]
+    { "src": "/api/(.*)", "dest": "/backend/server.js" },
+    { "src": "/(.*)", "dest": "/frontend/dist/index.html" }
+  ],
+  "env": {
+    "VITE_API_URL": "/api"
+  }
 }

@@ -1,39 +1,19 @@
 ﻿import express from 'express'
-import cors from 'cors'
-import helmet from 'helmet'
-import 'dotenv/config'
-
-import membersRoutes from './routes/members.js'
-import logger from './middlewares/logger.js'
+import membersRouter from './lib/routes/members.js'
+import eventsRouter from './lib/routes/events.js'
 
 const app = express()
-const PORT = process.env.PORT || 3000
+app.use(express.json())
 
-// 🛡️ Sécurité HTTP
-app.use(helmet())
+app.use('/api/members', membersRouter)
+app.use('/api/events', eventsRouter)
 
-// 🌐 CORS – autoriser le frontend Vite
-app.use(
-  cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    credentials: true,
+// ✅ Ajout pour le mode local uniquement
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 3000
+  app.listen(PORT, () => {
+    console.log(`[Server] Écoute sur http://localhost:${PORT}`)
   })
-)
+}
 
-// 🔧 Middlewares globaux
-app.use(express.json()) // parser le JSON
-app.use(logger)         // log personnalisé
-
-// 📦 Routes API
-app.use('/api/members', membersRoutes)
-
-// 🧪 Route de test
-app.get('/api/ping', (req, res) => {
-  res.json({ message: 'pong' })
-})
-
-// 🚀 Démarrage du serveur
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ API running on http://localhost:${PORT}`)
-})
+export default app

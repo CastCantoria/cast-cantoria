@@ -1,24 +1,14 @@
-﻿// src/composables/useAdminApi.js
-import { useAuthStore } from '@/stores/authStore'
+﻿import { useAuthStore } from '@/stores/authStore'
 import { useToaster } from '@/composables/useToaster'
 
 export function useAdminApi() {
   const auth = useAuthStore()
   const { error } = useToaster()
 
-  // 🔄 Retourne la base URL selon l'environnement
   const getApiBaseUrl = () => {
-    return import.meta.env.MODE === 'development'
-      ? 'http://localhost:3000'
-      : 'https://cast-cantoria.vercel.app'
+    return import.meta.env.VITE_API_URL || '/api'
   }
 
-  /**
-   * Wrapper général pour les appels API admin
-   * @param {string} endpoint - endpoint relatif (ex: '/members')
-   * @param {object} options - options fetch
-   * @returns {Promise<any>}
-   */
   const request = async (endpoint, options = {}) => {
     if (!auth.token || !auth.isAdmin) {
       const msg = '🔒 Accès réservé aux administrateurs'
@@ -32,7 +22,7 @@ export function useAdminApi() {
       Authorization: `Bearer ${auth.token}`,
     }
 
-    const url = `${getApiBaseUrl()}/api${endpoint}`
+    const url = `${getApiBaseUrl()}${endpoint}`
 
     try {
       const res = await fetch(url, { ...options, headers })
@@ -49,13 +39,14 @@ export function useAdminApi() {
     }
   }
 
-  // 🔹 Fonctions utilitaires pour GET / POST / PUT / DELETE
   const get = (endpoint, options) => request(endpoint, { ...options, method: 'GET' })
   const post = (endpoint, body, options) =>
     request(endpoint, { ...options, method: 'POST', body: JSON.stringify(body) })
+  const patch = (endpoint, body, options) =>
+    request(endpoint, { ...options, method: 'PATCH', body: JSON.stringify(body) })
   const put = (endpoint, body, options) =>
     request(endpoint, { ...options, method: 'PUT', body: JSON.stringify(body) })
   const del = (endpoint, options) => request(endpoint, { ...options, method: 'DELETE' })
 
-  return { request, get, post, put, del }
+  return { request, get, post, patch, put, del }
 }

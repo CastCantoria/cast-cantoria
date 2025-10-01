@@ -44,11 +44,11 @@
 
 <script setup>
 import { reactive, ref, watch } from 'vue'
-import { useAdminApi } from '@/composables/useAdminApi'
+import { useAdminApi } from '@/composables/useAdminApi' // ✅ export nommée
 import { useToaster } from '@/composables/useToaster'
 
 const props = defineProps({
-  member: Object, // si présent : édition
+  member: Object // si présent : édition
 })
 const emit = defineEmits(['close', 'saved'])
 
@@ -69,7 +69,7 @@ const form = reactive({
   lastName: '',
   email: '',
   phone: '',
-  role: 'member',
+  role: 'member'
 })
 
 // Remplir le formulaire si on modifie un membre
@@ -98,12 +98,13 @@ function close() {
 async function handleSubmit() {
   loading.value = true
   try {
+    console.log('[FloatingMemberForm] Données envoyées:', form)
     if (isEdit.value) {
       await patch(`/members/${props.member.id}`, { ...form })
-      success('✏️ Membre mis à jour avec succès')
+      success(`✏️ Membre mis à jour : ${form.firstName} ${form.lastName}`)
     } else {
       await post('/members', { ...form })
-      success('🎉 Membre ajouté avec succès')
+      success(`🎉 Membre ajouté : ${form.firstName} ${form.lastName}`)
     }
     emit('saved')
     close()
