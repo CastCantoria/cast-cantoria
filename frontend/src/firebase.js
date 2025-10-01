@@ -1,4 +1,4 @@
-﻿// src/firebase.js
+﻿// frontend/src/firebase.js
 import { initializeApp, getApps, getApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
 import { getAuth } from 'firebase/auth'
@@ -15,15 +15,15 @@ const firebaseConfig = {
   measurementId: 'G-9BNSYK4TH4'
 }
 
-// ✅ Empêche l’erreur "duplicate-app"
+// Empêche l’erreur "duplicate-app"
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp()
 
-// Analytics : fallback en cas d'erreur réseau ou config
+// Analytics : fallback si non disponible (SSR ou erreur réseau)
 let analytics = null
 try {
   analytics = getAnalytics(app)
 } catch (e) {
-  console.warn('Firebase Analytics non disponible, fallback measurementId utilisé', e)
+  console.warn('Firebase Analytics non disponible', e)
 }
 
 // Auth, Firestore et Storage

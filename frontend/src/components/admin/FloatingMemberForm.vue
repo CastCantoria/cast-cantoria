@@ -27,9 +27,7 @@
         <label>
           Rôle
           <select v-model="form.role" required>
-            <option value="member">Membre</option>
-            <option value="admin">Administrateur</option>
-            <option value="guest">Invité</option>
+            <option v-for="role in availableRoles" :key="role" :value="role">{{ role }}</option>
           </select>
         </label>
 
@@ -50,15 +48,21 @@ import { useAdminApi } from '@/composables/useAdminApi'
 import { useToaster } from '@/composables/useToaster'
 
 const props = defineProps({
-  member: Object, // optionnel : si présent, mode édition
+  member: Object, // si présent : édition
 })
 const emit = defineEmits(['close', 'saved'])
 
-const { adminFetch } = useAdminApi()
+const { post, patch } = useAdminApi()
 const { success, error } = useToaster()
 
 const loading = ref(false)
 const isEdit = ref(false)
+
+const availableRoles = [
+  'Staff', 'Contributeur', 'Musicien', 'Simple Membre',
+  'Membre Alto', 'Membre Soprano', 'Membre Tenor', 'Membre Basse',
+  'Mezzosoprano', 'Contralto', 'Baryton'
+]
 
 const form = reactive({
   firstName: '',
@@ -68,12 +72,20 @@ const form = reactive({
   role: 'member',
 })
 
+// Remplir le formulaire si on modifie un membre
 watch(
   () => props.member,
   (m) => {
     if (m) {
       isEdit.value = true
       Object.assign(form, m)
+    } else {
+      isEdit.value = false
+      form.firstName = ''
+      form.lastName = ''
+      form.email = ''
+      form.phone = ''
+      form.role = 'member'
     }
   },
   { immediate: true }
@@ -87,16 +99,10 @@ async function handleSubmit() {
   loading.value = true
   try {
     if (isEdit.value) {
-      await adminFetch(`/members/${props.member.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(form),
-      })
+      await patch(`/members/${props.member.id}`, { ...form })
       success('✏️ Membre mis à jour avec succès')
     } else {
-      await adminFetch('/members', {
-        method: 'POST',
-        body: JSON.stringify(form),
-      })
+      await post('/members', { ...form })
       success('🎉 Membre ajouté avec succès')
     }
     emit('saved')

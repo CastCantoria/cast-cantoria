@@ -5,10 +5,10 @@
       <h2 class="sidebar-title">Admin</h2>
       <nav class="sidebar-nav">
         <ul>
-          <li><a href="#" class="active">👥 Membres</a></li>
-          <li><a href="#">🎶 Répertoires</a></li>
-          <li><a href="#">📅 Événements</a></li>
-          <li><a href="#">⚙️ Paramètres</a></li>
+          <li><RouterLink to="/admin/members" class="active">👥 Membres</RouterLink></li>
+          <li><RouterLink to="/admin/repertoires">🎶 Répertoires</RouterLink></li>
+          <li><RouterLink to="/admin/events">📅 Événements</RouterLink></li>
+          <li><RouterLink to="/admin/settings">⚙️ Paramètres</RouterLink></li>
         </ul>
       </nav>
     </aside>
@@ -33,6 +33,11 @@
         </select>
         <button @click="openEditor()" class="btn-add">➕ Ajouter</button>
         <button @click="exportMembers" class="btn-export">📤 Exporter CSV</button>
+      </div>
+
+      <!-- Erreur -->
+      <div v-if="errorMsg" class="status-panel status error">
+        ⚠️ {{ errorMsg }}
       </div>
 
       <!-- Tableau -->
@@ -92,16 +97,13 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import FloatingMemberForm from '@/components/admin/FloatingMemberForm.vue'
 import { useMemberEditor } from '@/composables/useMemberEditor'
-import { useAdminApi } from '@/composables/useAdminApi'
-import { useToaster } from '@/composables/useToaster'
+import { useAdminFetch } from '@/composables/useAdminFetch'
 
-const { adminFetch } = useAdminApi()
-const { success, error } = useToaster()
-
+const { fetchData, loading, errorMsg } = useAdminFetch()
 const members = ref([])
-const loading = ref(true)
 const search = ref('')
 const filterRole = ref('')
 
@@ -121,36 +123,19 @@ const {
 onMounted(refreshMembers)
 
 async function refreshMembers() {
-  loading.value = true
-  try {
-    members.value = await adminFetch('/members')
-  } catch (err) {
-    error('⛔ Erreur chargement : ' + err.message)
-  } finally {
-    loading.value = false
-  }
+  const data = await fetchData('get', '/members')
+  if (data) members.value = data
 }
 
 async function updateMember(id, updates) {
-  try {
-    await adminFetch(`/members/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(updates),
-    })
-    success('✅ Membre mis à jour')
-  } catch (err) {
-    error('⛔ Erreur update : ' + err.message)
-  }
+  await fetchData('patch', `/members/${id}`, updates)
 }
 
 async function deleteMember(id) {
   if (!confirm('🗑️ Supprimer ce membre ?')) return
-  try {
-    await adminFetch(`/members/${id}`, { method: 'DELETE' })
-    success('✅ Membre supprimé')
-    refreshMembers()
-  } catch (err) {
-    error('⛔ Erreur suppression : ' + err.message)
+  const result = await fetchData('delete', `/members/${id}`)
+  if (result !== null) {
+    members.value = members.value.filter(m => m.id !== id)
   }
 }
 
@@ -180,7 +165,6 @@ const filteredMembers = computed(() => {
 </script>
 
 <style scoped>
-/* Layout */
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
@@ -217,8 +201,6 @@ const filteredMembers = computed(() => {
   background: #374151;
   color: #fff;
 }
-
-/* Content */
 .content {
   flex: 1;
   padding: 2rem;
@@ -278,16 +260,24 @@ const filteredMembers = computed(() => {
   gap: 0.5rem;
 }
 .btn-edit {
-  border-color: #4f46e5;
+  background: transparent;
+  border: 1px solid #4f46e5;
   color: #4f46e5;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .btn-edit:hover {
   background: #4f46e5;
   color: white;
 }
 .btn-delete {
-  border-color: #e11d48;
+  background: transparent;
+  border: 1px solid #e11d48;
   color: #e11d48;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .btn-delete:hover {
   background: #e11d48;
@@ -297,6 +287,14 @@ const filteredMembers = computed(() => {
   font-style: italic;
   color: #888;
   margin-top: 1rem;
+}
+.status-panel {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #374151;
 }
 .status.error {
   color: #e11d48;
